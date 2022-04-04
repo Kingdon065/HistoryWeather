@@ -14,15 +14,15 @@ def get_history_days(month, day, folder='data2'):
         for filename in os.listdir(year_folder):
             if mon_keyword in filename:
                 path = os.path.join(year_folder, filename)
-                f = open(path)
+                f = open(path, encoding='utf-8')
                 reader = csv.reader(f)
                 data = list(reader)
                 if title:
-                    print(f'{data[0][0]:20}{data[0][2]:5}{data[0][3]:5}')
+                    print(f'{data[0][0]:20}{data[0][1]:5}{data[0][3]:5}')
                     title = False
-                print(f'{data[day][0]:20}{data[day][2]:10}{data[day][3]:10}')
+                print(f'{data[day][0]:20}{data[day][1]:10}{data[day][3]:10}')
                 f.close()
 
 
-get_history_days(5, 1)
+get_history_days(4, 5)
                     
